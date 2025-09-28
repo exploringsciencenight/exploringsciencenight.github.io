@@ -225,20 +225,20 @@
     <div id="contact-form">
       <form id="contactForm" data-form-id="xblzgraw">
         <label for="name" class="required">Name</label>
-        <input type="text" id="name" name="name" required placeholder="Your Name">
+        <input type="text" id="name" name="Name:" required placeholder="Your Name">
         <label for="contact" class="required">Email or Phone Number</label>
-        <input type="text" id="contact" name="contact" required placeholder="Email or Phone">
+        <input type="text" id="contact" name="Contact:" required placeholder="Email or Phone">
         <label for="contact" class="required">What Organization Are You Reaching Out From?</label>
-        <input type="text" id="organization" name="organization" required placeholder="Organization Name">
+        <input type="text" id="organization" name="Organization:" required placeholder="Organization Name">
         <label for="organization-type">Organization Type (Optional)</label>
-        <select name="organization-type" id="organization-type">
-          <option value="" disabled selected hidden>Select Option</option>
+        <select name="Organization Type:" id="organization-type">
+          <option value="Prefer Not to Say" selected hidden>Select Option</option>
           <option value="Class/School">Class/School</option>
           <option value="Other">Other</option>
           <option value="Prefer Not to Say">Prefer Not to Say</option>
         </select>
         <label for="reason" class="required">Reason for Contacting Us</label>
-        <select name="reason" id="reason">
+        <select name="Reason For Contacting:" id="reason">
           <option value="" disabled selected hidden>Select Option</option>
           <option value="Want to Borrow Kit">Borrow a Kit (Seattle Area Only)</option>
           <option value="Want to Build A Kit">Want to Build a Kit</option>
@@ -247,7 +247,7 @@
         </select>
         <div id="otherReasonContainer">
           <label for="otherReason",>Specify Your Reason:</label>
-          <input type="text" id="otherReason" name="otherReason" placeholder="Reason For Contacting Us">
+          <input type="text" id="otherReason" name="Specific Reason for Contacting" placeholder="Reason For Contacting Us">
         </div>
         <button type="submit">Send Message</button>
       </form>
