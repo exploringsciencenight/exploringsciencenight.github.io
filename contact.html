@@ -182,7 +182,7 @@
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
       outline: none;
     }
-    #otherReasonContainer {
+    .otherContainer {
       display: none;
       flex-direction: column;
       gap: 15px;
@@ -237,6 +237,10 @@
           <option value="Other">Other</option>
           <option value="Prefer Not to Say">Prefer Not to Say</option>
         </select>
+        <div class="otherContainer">
+          <label for="otherOrgType" class="required">Specify Your Organization Type:</label>
+          <input type="text" id="otherOrgType" name="Specific Organization Type:" required placeholder="Organization Type">
+        </div>
         <label for="reason" class="required">Reason for Contacting Us</label>
         <select name="Reason For Contacting:" id="reason">
           <option value="" disabled selected hidden>Select Option</option>
@@ -245,9 +249,9 @@
           <option value="Just Saying Hi">Just Saying Hi</option>
           <option value="Other. See Below">Other</option>
         </select>
-        <div id="otherReasonContainer">
-          <label for="otherReason",>Specify Your Reason:</label>
-          <input type="text" id="otherReason" name="Specific Reason for Contacting" placeholder="Reason For Contacting Us">
+        <div class="otherContainer">
+          <label for="otherReason", class="required">Specify Your Reason for Contacting Us:</label>
+          <input type="text" id="otherReason" name="Specific Reason for Contacting:" required placeholder="Reason For Contacting Us">
         </div>
         <button type="submit">Send Message</button>
       </form>
@@ -259,6 +263,24 @@
       const navLinks = document.getElementById("nav-links");
       navLinks.classList.toggle("show");
     }
+
+    const toggles = [
+      { select: document.getElementById("organization-type"), container: document.querySelectorAll(".otherContainer")[0], input: document.getElementById("otherOrgType"), trigger: "Other" },
+      { select: document.getElementById("reason"), container: document.querySelectorAll(".otherContainer")[1], input: document.getElementById("otherReason"), trigger: "Other. See Below" }
+    ];
+    toggles.forEach(t => {
+      t.select.addEventListener("change", function() {
+        if (t.select.value === t.trigger) {
+          t.container.style.display = "flex";
+          t.input.required = true;
+        } else {
+          t.container.style.display = "none";
+          t.input.required = false;
+          t.input.value = "";
+        }
+      });
+    });
+
     document.getElementById("contactForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const form = e.target;
@@ -278,6 +300,11 @@
                   responseDiv.style.color = 'green';
                   responseDiv.textContent = "Your message has been sent! We will respond as soon as possible.";
                   form.reset();
+                  toggles.forEach(t => {
+                    t.container.style.display = "none";
+                    t.input.required = false;
+                    t.input.value = "";
+                  });
                 } else {
                   responseDiv.style.color = 'red';
                   responseDiv.textContent = "Oops! There was a problem. Please try again later.";
@@ -288,19 +315,6 @@
                 responseDiv.textContent = "Oops! There was a problem. Please try again later.";
                 console.error(error);
               });
-    });
-    const reasonSelect = document.getElementById("reason");
-    const otherReasonContainer = document.getElementById("otherReasonContainer");
-    const otherReasonInput = document.getElementById("otherReason");
-    reasonSelect.addEventListener("change", function() {
-      if (reasonSelect.value === "Other. See Below") {
-        otherReasonContainer.style.display = "flex";
-        otherReasonInput.required = true;
-      } else {
-        otherReasonContainer.style.display = "none";
-        otherReasonInput.required = false;
-        otherReasonInput.value = "";
-      }
     });
   </script>
 </body>
