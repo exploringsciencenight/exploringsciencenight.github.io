@@ -155,6 +155,34 @@
       cursor: pointer;
       transition: background-color 0.2s;
     }
+    #contact-form select {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #fff;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='%231e3a8a' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 16px;
+      cursor: pointer;
+      margin-bottom: 5px;
+    }
+    #contact-form select:hover, #contact-form select:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+      outline: none;
+    }
+    #otherReasonContainer {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+    }
     #contact-form button:hover {
       background-color: #2563eb;
     }
@@ -196,8 +224,24 @@
         <input type="text" id="name" name="name" required placeholder="Your Name">
         <label for="contact">Email or Phone Number</label>
         <input type="text" id="contact" name="contact" required placeholder="Email or Phone">
-        <label for="message">Reason for Contacting Us</label>
-        <textarea id="message" name="message" rows="10" placeholder="Your Message"></textarea>
+        <label for="contact">What Organization Are You Reaching Out From?</label>
+        <input type="text" id="organization" name="organization" required placeholder="Organization Name">
+        <label for="organization-type">Organization Type</label>
+        <select name="organization-type" id="organization-type">
+          <option value="Class/School">Class/School</option>
+          <option value="Other">Other</option>
+        </select>
+        <label for="reason",>Reason for Contacting Us</label>
+        <select name="reason" id="reason">
+          <option value="Want to Borrow Kit">Borrow a Kit (Seattle Area Only)</option>
+          <option value="Want to Build A Kit">Want to Build a Kit</option>
+          <option value="Just Saying Hi">Just Saying Hi</option>
+          <option value="Other. See Below">Other</option>
+        </select>
+        <div id="otherReasonContainer">
+          <label for="otherReason",>Specify Your Reason:</label>
+          <input type="text" id="otherReason" name="otherReason" placeholder="Reason For Contacting Us">
+        </div>
         <button type="submit">Send Message</button>
       </form>
       <div id="formResponse"></div>
@@ -237,6 +281,19 @@
                 responseDiv.textContent = "Oops! There was a problem. Please try again later.";
                 console.error(error);
               });
+    });
+    const reasonSelect = document.getElementById("reason");
+    const otherReasonContainer = document.getElementById("otherReasonContainer");
+    const otherReasonInput = document.getElementById("otherReason");
+    reasonSelect.addEventListener("change", function() {
+      if (reasonSelect.value === "Other. See Below") {
+        otherReasonContainer.style.display = "flex";
+        otherReasonInput.required = true;
+      } else {
+        otherReasonContainer.style.display = "none";
+        otherReasonInput.required = false;
+        otherReasonInput.value = "";
+      }
     });
   </script>
 </body>
