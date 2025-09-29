@@ -150,8 +150,6 @@
     }
     #button-row {
       display: flex;
-      width: 100%;
-      justify-content: space-between;
       align-items: center;
       gap: 18px;
       margin-top: 10px;
@@ -166,6 +164,11 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.2s;
+    }
+    #resetButtonDiv{
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
     }
     #resetButton {
       background: none;
@@ -276,7 +279,7 @@
         <input type="file" id="file" name="File:">
         <div id="buttonRow">
           <button type="submit" id="submitButton">Send Message</button>
-          <button type="reset" id="resetButton">Reset Form</button>
+          <div id="resetButtonDiv"><button type="reset" id="resetButton">Reset Form</button></div>
         </div>
       </form>
       <div id="formResponse"></div>
