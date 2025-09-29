@@ -226,9 +226,11 @@
       <form id="contactForm" data-form-id="xblzgraw">
         <label for="name" class="required">Name</label>
         <input type="text" id="name" name="Name:" required placeholder="Your Name">
-        <label for="contact" class="required">Email or Phone Number</label>
-        <input type="text" id="contact" name="Contact:" required placeholder="Email or Phone">
-        <label for="contact" class="required">What Organization Are You Reaching Out From?</label>
+        <label for="email" class="required">Email</label>
+        <input type="text" id="email" name="Email:" required placeholder="youremail@domain.com">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" name="Phone Number:" placeholder="Phone Number (Optional)">
+        <label for="organization" class="required">What Organization Are You Reaching Out From?</label>
         <input type="text" id="organization" name="Organization:" required placeholder="Organization Name">
         <label for="organization-type">Organization Type (Optional)</label>
         <select name="Organization Type:" id="organization-type">
@@ -307,12 +309,12 @@
                   });
                 } else {
                   responseDiv.style.color = 'red';
-                  responseDiv.textContent = "Oops! There was a problem. Please try again later.";
+                  responseDiv.textContent = "Oops! Please ensure that you have provided a valid email.";
                 }
               })
               .catch(error => {
                 responseDiv.style.color = 'red';
-                responseDiv.textContent = "Oops! There was a problem. Please try again later.";
+                responseDiv.textContent = "Oops! We have encountered an issue. Please reload the page and try again. If the issue persists, email 'exploringsciencenight@gmail.com' to get help.";
                 console.error(error);
               });
     });
