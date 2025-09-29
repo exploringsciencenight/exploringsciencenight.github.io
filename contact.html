@@ -148,7 +148,7 @@
     #contact-form textarea {
       resize: vertical;
     }
-    #contact-form button {
+    #submitButton {
       padding: 12px;
       font-size: 1rem;
       font-weight: 600;
@@ -158,6 +158,8 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.2s;
+    }
+    #resetButton{
     }
     #contact-form select {
       padding: 10px;
@@ -251,8 +253,8 @@
         </div>
         <label for="file">Upload a File (Optional)</label>
         <input type="file" id="file" name="File:">
-        <button type="submit">Send Message</button>
-        <button type="reset">Reset Form</button>
+        <button type="submit" id="submitButton">Send Message</button>
+        <button type="reset" id="resetButton">Reset Form</button>
       </form>
       <div id="formResponse"></div>
     </div>
