@@ -148,12 +148,12 @@
     #contact-form textarea {
       resize: vertical;
     }
-    #buttonRow {
+    #button-row {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
-      gap: 18px;
       margin-top: 10px;
+      width: 100%;
     }
     #submitButton {
       padding: 12px;
@@ -165,11 +165,6 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.2s;
-    }
-    #resetButtonDiv{
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 10px;
     }
     #resetButton {
       background: none;
@@ -280,7 +275,7 @@
         <input type="file" id="file" name="File:">
         <div id="buttonRow">
           <button type="submit" id="submitButton">Send Message</button>
-          <div id="resetButtonDiv"><button type="reset" id="resetButton">Reset Form</button></div>
+          <button type="reset" id="resetButton">Reset Form</button>
         </div>
       </form>
       <div id="formResponse"></div>
