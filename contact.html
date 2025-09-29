@@ -148,6 +148,13 @@
     #contact-form textarea {
       resize: vertical;
     }
+    #button-row {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 18px;
+      margin-top: 10px;
+    }
     #submitButton {
       padding: 12px;
       font-size: 1rem;
@@ -159,7 +166,20 @@
       cursor: pointer;
       transition: background-color 0.2s;
     }
-    #resetButton{
+    #resetButton {
+      background: none;
+      border: none;
+      color: #2563eb;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.2s;
+      padding: 0;
+    }
+    #resetButton:hover {
+      color: #1e3a8a;
+      text-decoration: underline;
     }
     #contact-form select {
       padding: 10px;
@@ -253,8 +273,10 @@
         </div>
         <label for="file">Upload a File (Optional)</label>
         <input type="file" id="file" name="File:">
-        <button type="submit" id="submitButton">Send Message</button>
-        <button type="reset" id="resetButton">Reset Form</button>
+        <div id="buttonRow">
+          <button type="submit" id="submitButton">Send Message</button>
+          <button type="reset" id="resetButton">Reset Form</button>
+        </div>
       </form>
       <div id="formResponse"></div>
     </div>
