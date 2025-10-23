@@ -337,8 +337,7 @@
 
     const toggles = [
       { select: document.getElementById("organization-type"), container: document.querySelectorAll(".otherContainer")[0], input: document.getElementById("otherOrgType"), trigger: "Other" },
-      { select: document.getElementById("reason"), container: document.querySelectorAll(".otherContainer")[1], input: document.getElementById("otherReason"), trigger: "Other. See Below" },
-      //hide both elements in the other Container Class when Resest Button is clicked {}
+      { select: document.getElementById("reason"), container: document.querySelectorAll(".otherContainer")[1], input: document.getElementById("otherReason"), trigger: "Other. See Below" }
     ];
     toggles.forEach(t => {
       t.select.addEventListener("change", function() {
