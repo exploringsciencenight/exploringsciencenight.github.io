@@ -353,6 +353,22 @@
       });
     });
 
+    document.getElementById("contactForm").addEventListener("reset", function() {
+      setTimeout(() => {
+        toggles.forEach(t => {
+          if (t && t.container) {
+            t.container.style.display = "none";
+          }
+          if (t && t.input) {
+            t.input.required = false;
+            try { t.input.value = ""; } catch (e) {}
+          }
+        });
+        const responseDiv = document.getElementById("formResponse");
+        if (responseDiv) responseDiv.textContent = "";
+      }, 0);
+    });
+    
     document.getElementById("contactForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const form = e.target;
