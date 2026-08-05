@@ -162,10 +162,26 @@
       <p>
         Anyone and everyone can help, and we sincerely appreciate any and all assistance in all manners, whether that means helping bring our kit to schools near you or helping add to it, or better yet, starting your own!
       </p>
-      <a href="contact.html" class="cta-button"><i class="fa fa-paper-plane"></i> Contact Us</a>
+      <a href="contact.html" onclick="navigateToContact(event)" class="cta-button"><i class="fa fa-paper-plane"></i> Contact Us</a>
     </div>
 
   </div>
+
+  <script>
+    function navigateToContact(e) {
+      e.preventDefault();
+      const targetPath = "html/contact.html";
+      
+      if (window.top !== window.self && window.parent.setActiveLink) {
+        const parentNav = window.parent.document.querySelector(`a[href="${targetPath}"]`);
+        if (parentNav) {
+          window.parent.setActiveLink(parentNav);
+        }
+      }
+      
+      window.location.href = "contact.html";
+    }
+  </script>
 
 </body>
 </html>
