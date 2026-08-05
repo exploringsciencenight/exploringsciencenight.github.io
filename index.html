@@ -7,7 +7,7 @@
   <link rel="icon" type="image/x-icon" href="assets/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css?v=4">
 </head>
 <body class="index-body">
   <nav>
@@ -30,27 +30,64 @@
 
   <iframe name="content-frame" id="content-frame" src="html/home.html"></iframe>
 
+  <footer id="site-footer">
+    <div class="footer-content">
+      <span class="copyright-text">Created by <strong>Kinsey & Krishav</strong></span>
+      <a href="#" id="backToTopBtn" onclick="scrollToTop(event)" class="back-to-top">
+        Back to Top <i class="fa fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
   <script>
     const iframe = document.getElementById("content-frame");
-  
+    const footer = document.getElementById("site-footer");
+
     function hamburgerMenu() {
       const navLinks = document.getElementById("nav-links");
       navLinks.classList.toggle("show");
     }
-  
+
     function setActiveLink(element) {
       const links = document.querySelectorAll("#nav-links a");
       links.forEach(link => link.classList.remove("active"));
-  
+
       const targetHref = element.getAttribute("href");
       const matchedLink = Array.from(links).find(link => link.getAttribute("href") === targetHref);
       if (matchedLink) {
         matchedLink.classList.add("active");
       }
-  
+
       document.getElementById("nav-links").classList.remove("show");
     }
-  
+
+    function checkIframeScrollbar() {
+      try {
+        if (iframe.contentWindow && iframe.contentDocument) {
+          const doc = iframe.contentDocument.documentElement;
+          const hasScrollbar = doc.scrollHeight > iframe.contentWindow.innerHeight;
+          
+          if (hasScrollbar) {
+            footer.classList.add("has-scroll");
+          } else {
+            footer.classList.remove("has-scroll");
+          }
+        }
+      } catch (e) {
+        console.error("Could not evaluate scroll status:", e);
+      }
+    }
+
+    function scrollToTop(e) {
+      e.preventDefault();
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    }
+
     iframe.addEventListener("load", function() {
       try {
         if (iframe.contentDocument && iframe.contentDocument.title) {
@@ -59,7 +96,10 @@
       } catch (e) {
         console.error("Could not read frame title:", e);
       }
+      checkIframeScrollbar();
     });
+
+    window.addEventListener("resize", checkIframeScrollbar);
 
     window.addEventListener("DOMContentLoaded", () => {
       const hash = window.location.hash.replace("#", "");
