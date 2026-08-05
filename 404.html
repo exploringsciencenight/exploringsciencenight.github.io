@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Exploring Science Night</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    .error-wrapper {
+      text-align: center;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background: #eff6ff;
+      border: 2px solid #bfdbfe;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .icon-container i {
+      font-size: 2.8rem;
+      color: #1e3a8a;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .error-code {
+      font-size: 5rem;
+      font-weight: 800;
+      color: #1e3a8a;
+      letter-spacing: -2px;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .error-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin: 12px 0 8px 0;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #4b5563;
+      max-width: 550px;
+      margin: 0 auto 30px auto;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #1e3a8a;
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 2px 4px rgba(30, 58, 138, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: #1e3a8a;
+      border: 1px solid #cbd5e1;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f8fafc;
+      border-color: #1e3a8a;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="frame-body">
+
+  <div id="container">
+    <div class="error-wrapper">
+      
+      <div class="icon-container">
+        <i class="fa fa-flask"></i>
+      </div>
+
+      <h1 class="error-code">404</h1>
+      <h2 class="error-title">Experiment Gone Missing!</h2>
+      <p class="subtitle">
+        The page or resource you are searching for couldn't be located in our lab. It may have been moved, removed, or never existed.
+      </p>
+
+      <div class="button-group">
+        <button id="homeBtn" class="btn btn-primary">
+          <i class="fa fa-home"></i> Back to Home
+        </button>
+        <button id="contactBtn" class="btn btn-secondary">
+          <i class="fa fa-envelope"></i> Contact Us
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function goToPage(pageKey) {
+      const targetPath = `html/${pageKey}.html`;
+
+      if (window.top !== window.self && window.parent.setActiveLink) {
+        const navTarget = window.parent.document.querySelector(`a[href="${targetPath}"]`);
+        if (navTarget) {
+          window.parent.setActiveLink(navTarget);
+        }
+        window.location.href = targetPath;
+      }
+      else {
+        window.top.location.href = `/#${pageKey}`;
+      }
+    }
+
+    document.getElementById("homeBtn").addEventListener("click", function() {
+      goToPage("home");
+    });
+
+    document.getElementById("contactBtn").addEventListener("click", function() {
+      goToPage("contact");
+    });
+  </script>
+
+</body>
+</html>

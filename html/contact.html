@@ -3,128 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Exploring Science Night - Contact Us</title>
-  <link rel="icon" type="image/x-icon" href="/favicon-16X16.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../index.css">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    nav {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 10px 10vw;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      position: relative;
-    }
-    #logo {
-      height: 50px;
-      width: auto;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #1e3a8a;
-      font-size: 1.25rem;
-      font-weight: 600;
-      padding: 6px 4px;
-      transition: color 0.2s, border-bottom 0.2s;
-      border-bottom: 2px solid transparent;
-    }
-    nav ul li a.active {
-      color: #11801f;
-      border-bottom: 2px solid #11801f;
-    }
-    nav ul li a:hover {
-      color: #2563eb;
-      border-bottom: 2px solid #2563eb;
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: #1e3a8a;
-    }
-    @media (max-width: 1100px) {
-      #logo {
-        height: 40px;
-      }
-      nav ul li a {
-        font-size: 15px;
-      }
-    }
-    @media (max-width: 850px) {
-      .hamburger {
-        display: flex;
-      }
-      nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 10vw;
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        width: max-content;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        max-height: 0;
-        gap: 0;
-      }
-      nav ul.show {
-        display: flex;
-        max-height: 500px;
-      }
-      nav ul li {
-        margin: 0;
-        padding: 4px 12px;
-      }
-    }
-    @media (max-width: 350px) {
-      #logo {
-        display: none;
-      }
-    }
-    #container {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    h1 {
-      text-align: center;
-      color: #1e3a8a;
-      margin-bottom: 20px;
-    }
-    p{
-      line-height: 1.5;
+    .lead-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #4b5563;
+      margin-bottom: 25px;
     }
     #contact-form form {
       display: flex;
@@ -134,10 +20,11 @@
     #contact-form label {
       font-weight: 600;
       margin-bottom: 5px;
+      color: #1e3a8a;
     }
     #contact-form label.required::after {
       content: " *";
-      color: red;
+      color: #dc2626;
     }
     #contact-form input,
     #contact-form textarea {
@@ -147,6 +34,7 @@
       border-radius: 5px;
       width: 100%;
       box-sizing: border-box;
+      font-family: inherit;
     }
     #contact-form textarea {
       resize: vertical;
@@ -159,7 +47,7 @@
       width: 100%;
     }
     #submitButton {
-      padding: 12px;
+      padding: 12px 24px;
       font-size: 1rem;
       font-weight: 600;
       color: #ffffff;
@@ -168,6 +56,9 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.2s;
+    }
+    #submitButton:hover {
+      background-color: #2563eb;
     }
     #resetButton {
       background: none;
@@ -200,7 +91,7 @@
       background-position: right 10px center;
       background-size: 16px;
       cursor: pointer;
-      margin-bottom: 5px;
+      font-family: inherit;
     }
     #contact-form select:hover, #contact-form select:focus {
       border-color: #2563eb;
@@ -211,9 +102,6 @@
       display: none;
       flex-direction: column;
       gap: 15px;
-    }
-    #contact-form button:hover {
-      background-color: #2563eb;
     }
     #file {
       padding: 10px;
@@ -232,20 +120,7 @@
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
       outline: none;
     }
-    #file::-webkit-file-upload-button {
-      background: #d1d5db;
-      color: #333;
-      border: none;
-      border-radius: 5px;
-      font-weight: 600;
-      padding: 6px 14px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    #file::-webkit-file-upload-button:hover {
-      background: #babdc2;
-    }
+    #file::-webkit-file-upload-button,
     #file::file-selector-button {
       background: #d1d5db;
       color: #333;
@@ -257,6 +132,7 @@
       cursor: pointer;
       transition: background 0.2s;
     }
+    #file::-webkit-file-upload-button:hover,
     #file::file-selector-button:hover {
       background: #babdc2;
     }
@@ -266,36 +142,24 @@
     }
   </style>
 </head>
-<body>
-  <div>
-    <nav>
-      <a href="home.html"><img id="logo" src="/logo.png" alt="Exploring Science Night Logo"></a>
-      <div class="hamburger" onclick="hamburgerMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <ul id="nav-links">
-        <li><a href="home.html"><i class="fa fa-fw fa-home"></i> Home</a></li>
-        <li><a href="activities.html"><i class="fa fa-check-square-o"></i> Activities</a></li>
-        <li><a href="about.html"><i class="fa fa-info-circle"></i> About Us</a></li>
-        <li><a href="contact.html" class="active"><i class="fa fa-fw fa-envelope"></i> Contact</a></li>
-      </ul>
-    </nav>
-  </div>
+<body class="frame-body">
   <div id="container">
     <h1>Contact Us</h1>
-    <p>To borrow the Exploring Science Night kit for free, please fill out the contact form, and we will reach out to you as soon as possible. If you would like to know how to build your own kit, do not hesitate to ask. Our goal is to work with individuals and groups to create kits across the country and around the world!</p>
+    <p class="lead-text">To borrow the Exploring Science Night kit for free, please fill out the contact form, and we will reach out to you as soon as possible. If you would like to know how to build your own kit, do not hesitate to ask. Our goal is to work with individuals and groups to create kits across the country and around the world!</p>
     <div id="contact-form">
       <form id="contactForm" data-form-id="xblzgraw">
         <label for="name" class="required">Name</label>
         <input type="text" id="name" name="Name:" required placeholder="Your Name">
+
         <label for="email" class="required">Email</label>
         <input type="text" id="email" name="Email:" required placeholder="youremail@domain.com">
+
         <label for="phoneNumber">Phone Number (Optional)</label>
         <input type="text" id="phoneNumber" name="Phone Number:" placeholder="Your Phone Number">
+
         <label for="organization" class="required">What Organization Are You Reaching Out From?</label>
         <input type="text" id="organization" name="Organization:" required placeholder="Organization Name">
+
         <label for="organization-type">Organization Type (Optional)</label>
         <select name="Organization Type:" id="organization-type">
           <option value="Prefer Not to Say" selected hidden>Select Option</option>
@@ -307,6 +171,7 @@
           <label for="otherOrgType" class="required">Specify Your Organization Type:</label>
           <input type="text" id="otherOrgType" name="Specific Organization Type:" required placeholder="Organization Type">
         </div>
+
         <label for="reason" class="required">Reason for Contacting Us</label>
         <select name="Reason For Contacting:" id="reason">
           <option value="" disabled selected hidden>Select Option</option>
@@ -319,8 +184,10 @@
           <label for="otherReason" class="required">Specify Your Reason for Contacting Us:</label>
           <textarea id="otherReason" name="Specific Reason for Contacting:" rows="5" required placeholder="Reason For Contacting Us"></textarea>
         </div>
+
         <label for="file">Upload a File (Optional)</label>
         <input type="file" id="file" name="File:">
+
         <div id="buttonRow">
           <button type="submit" id="submitButton">Send Message</button>
           <button type="reset" id="resetButton">Reset Form</button>
@@ -329,16 +196,13 @@
       <div id="formResponse"></div>
     </div>
   </div>
-  <script>
-    function hamburgerMenu() {
-      const navLinks = document.getElementById("nav-links");
-      navLinks.classList.toggle("show");
-    }
 
+  <script>
     const toggles = [
       { select: document.getElementById("organization-type"), container: document.querySelectorAll(".otherContainer")[0], input: document.getElementById("otherOrgType"), trigger: "Other" },
       { select: document.getElementById("reason"), container: document.querySelectorAll(".otherContainer")[1], input: document.getElementById("otherReason"), trigger: "Other. See Below" }
     ];
+
     toggles.forEach(t => {
       t.select.addEventListener("change", function() {
         if (t.select.value === t.trigger) {
@@ -381,27 +245,27 @@
           'Accept': 'application/json'
         }
       })
-              .then(response => response.json())
-              .then(data => {
-                if (data.ok) {
-                  responseDiv.style.color = 'green';
-                  responseDiv.textContent = "Your message has been sent! We will respond as soon as possible.";
-                  form.reset();
-                  toggles.forEach(t => {
-                    t.container.style.display = "none";
-                    t.input.required = false;
-                    t.input.value = "";
-                  });
-                } else {
-                  responseDiv.style.color = 'red';
-                  responseDiv.textContent = "Oops! Please ensure that you have provided a valid email.";
-                }
-              })
-              .catch(error => {
-                responseDiv.style.color = 'red';
-                responseDiv.textContent = "Oops! We have encountered an issue. Please reload the page and try again. If the issue persists, email 'exploringsciencenight@gmail.com' to get help.";
-                console.error(error);
-              });
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          responseDiv.style.color = 'green';
+          responseDiv.textContent = "Your message has been sent! We will respond as soon as possible.";
+          form.reset();
+          toggles.forEach(t => {
+            t.container.style.display = "none";
+            t.input.required = false;
+            t.input.value = "";
+          });
+        } else {
+          responseDiv.style.color = 'red';
+          responseDiv.textContent = "Oops! Please ensure that you have provided a valid email.";
+        }
+      })
+      .catch(error => {
+        responseDiv.style.color = 'red';
+        responseDiv.textContent = "Oops! We have encountered an issue. Please reload the page and try again. If the issue persists, email 'exploringsciencenight@gmail.com' to get help.";
+        console.error(error);
+      });
     });
   </script>
 </body>

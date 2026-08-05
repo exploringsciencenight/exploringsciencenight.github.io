@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exploring Science Night - About Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../index.css">
+  <style>
+    .lead-text {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      text-align: center;
+      color: #4b5563;
+      margin-bottom: 35px;
+    }
+    .team-grid {
+      display: flex;
+      gap: 25px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .team-card {
+      flex: 1;
+      min-width: 260px;
+      background: #f8fafc;
+      border-top: 4px solid #1e3a8a;
+      padding: 28px 20px 24px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    }
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 16px auto;
+      border: 4px solid #ffffff;
+      box-shadow: 0 0 0 3px #1e3a8a, 0 4px 10px rgba(0, 0, 0, 0.12);
+      display: block;
+    }
+    .team-card h3 {
+      margin: 12px 0 4px 0;
+      color: #1e3a8a;
+      font-size: 1.35rem;
+    }
+    .team-card p {
+      margin: 4px 0;
+      color: #4b5563;
+      font-size: 0.98rem;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #1e3a8a;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+    .section-header i {
+      font-size: 1.3rem;
+      color: #2563eb;
+    }
+    .section-header h2 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+    .callout-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 35px;
+      text-align: center;
+    }
+    .callout-box h3 {
+      margin-top: 0;
+      color: #1e3a8a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 24px;
+      background-color: #1e3a8a;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background-color 0.2s;
+    }
+    .cta-button:hover {
+      background-color: #2563eb;
+    }
+    @media (max-width: 600px) {
+      .team-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="frame-body">
+
+  <div id="container">
+    <h1>About Us</h1>
+    
+    <p class="lead-text">
+      Who are we? We are Kinsey and Krishav, two friends who are both sophomores in Inglemoor and Bothell High Schools respectively, of the Northshore School District. We have both always been fascinated with science from a young age, and that has not changed.
+    </p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="../assets/profile_imgs/kinsey.png" alt="Kinsey" class="profile-img">
+        <h3>Kinsey</h3>
+        <p><strong>Inglemoor High School</strong></p>
+      </div>
+      <div class="team-card">
+        <img src="../assets/profile_imgs/krishav.png" alt="Krishav" class="profile-img">
+        <h3>Krishav</h3>
+        <p><strong>Bothell High School</strong></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <i class="fa fa-history"></i>
+        <h2>How It Started</h2>
+      </div>
+      <p>
+        Kinsey’s dad started the original Exploring Science Night (ESN) while he and his older brother were in elementary school. It all stems from a couple of different things, such as a laser for a science fair project, or a Mentos geyser kit, or just toys bought for fun, before being assembled into a full kit. Then, the global Coronavirus pandemic hit, and by the time ESN could’ve been restarted, Kinsey was out of elementary school and it all fell apart.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <i class="fa fa-rocket"></i>
+        <h2>Our Mission</h2>
+      </div>
+      <p>
+        Now, the two of us are restarting it, bigger and better than ever before, and hope to expand our influence to all across the Seattle region, and potentially even the country or world, by inspiring others to assemble their own kits.
+      </p>
+      <p>
+        We both know that being exposed to science from a young age can shape your future career and interests, and therefore ask that you help us in spreading breathtaking experiments and demonstrations to as many elementary schoolers as possible.
+      </p>
+    </div>
+
+    <div class="callout-box">
+      <h3><i class="fa fa-users"></i> How You Can Help</h3>
+      <p>
+        Anyone and everyone can help, and we sincerely appreciate any and all assistance in all manners, whether that means helping bring our kit to schools near you or helping add to it, or better yet, starting your own!
+      </p>
+      <a href="contact.html" class="cta-button"><i class="fa fa-paper-plane"></i> Contact Us</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

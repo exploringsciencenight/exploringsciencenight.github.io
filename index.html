@@ -1,62 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="index-body">
 <head>
   <meta charset="UTF-8">
-  <title>Exploring Science Night - Redirecting</title>
-  <link rel="icon" type="image/x-icon" href="/favicon-16X16.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    .container {
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 40px;
-      max-width: 400px;
-      width: 100%;
-    }
-    h1 {
-      color: #1e3a8a;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
-    p {
-      line-height: 1.5;
-      margin-top: 0;
-    }
-    a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-  <meta http-equiv='refresh' content='0.25; URL="http://exploringsciencenight.github.io/home.html"'>
-  <script>
-    window.onload = function() {
-      setTimeout(function() {
-        window.location.href = "http://exploringsciencenight.github.io/home.html";
-      }, 5000);
-    };
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exploring Science Night</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
 </head>
-<body>
-  <div class="container">
-    <h1>Redirecting...</h1>
-    <p>If you are not redirected automatically, follow this <a href="http://exploringsciencenight.github.io/home.html">link</a>.</p>
-  </div>
+<body class="index-body">
+  <nav>
+    <a href="html/home.html" target="content-frame" onclick="setActiveLink(this)">
+      <img id="logo" src="assets/logo.png" alt="Exploring Science Night Logo">
+    </a>
+    <div class="hamburger" onclick="hamburgerMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul id="nav-links">
+      <li><a href="html/home.html" target="content-frame" class="active" onclick="setActiveLink(this)"><i class="fa fa-fw fa-home"></i> Home</a></li>
+      <li><a href="html/activities.html" target="content-frame" onclick="setActiveLink(this)"><i class="fa fa-check-square-o"></i> Activities</a></li>
+      <li><a href="html/about.html" target="content-frame" onclick="setActiveLink(this)"><i class="fa fa-info-circle"></i> About Us</a></li>
+      <li><a href="html/contact.html" target="content-frame" onclick="setActiveLink(this)"><i class="fa fa-fw fa-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
+
+  <iframe name="content-frame" id="content-frame" src="html/home.html"></iframe>
+
+  <script>
+    const iframe = document.getElementById("content-frame");
+  
+    function hamburgerMenu() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("show");
+    }
+  
+    function setActiveLink(element) {
+      const links = document.querySelectorAll("#nav-links a");
+      links.forEach(link => link.classList.remove("active"));
+  
+      const targetHref = element.getAttribute("href");
+      const matchedLink = Array.from(links).find(link => link.getAttribute("href") === targetHref);
+      if (matchedLink) {
+        matchedLink.classList.add("active");
+      }
+  
+      document.getElementById("nav-links").classList.remove("show");
+    }
+  
+    iframe.addEventListener("load", function() {
+      try {
+        if (iframe.contentDocument && iframe.contentDocument.title) {
+          document.title = iframe.contentDocument.title;
+        }
+      } catch (e) {
+        console.error("Could not read frame title:", e);
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        const targetNav = document.querySelector(`a[href="html/${hash}.html"]`);
+        if (targetNav) {
+          setActiveLink(targetNav);
+          iframe.src = `html/${hash}.html`;
+        }
+        history.replaceState(null, "", window.location.pathname);
+      }
+    });
+  </script>
 </body>
 </html>
