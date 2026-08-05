@@ -3,135 +3,814 @@
 <head>
   <meta charset="UTF-8">
   <title>Exploring Science Night - Activities</title>
-  <link rel="icon" type="image/x-icon" href="/favicon-16X16.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../index.css">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    nav {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 10px 10vw;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    .toc-pills {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
       flex-wrap: wrap;
-      position: relative;
-    }
-    #logo {
-      height: 50px;
-      width: auto;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
+      gap: 8px;
       justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 10px 14px;
+      border-radius: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 10px;
+      z-index: 100;
     }
-    nav ul li a {
+    .toc-pills a {
       text-decoration: none;
       color: #1e3a8a;
-      font-size: 1.25rem;
       font-weight: 600;
-      padding: 6px 4px;
-      transition: color 0.2s, border-bottom 0.2s;
-      border-bottom: 2px solid transparent;
+      font-size: 0.88rem;
+      padding: 6px 14px;
+      background: #f8fafc;
+      border-radius: 20px;
+      transition: all 0.2s ease;
     }
-    nav ul li a.active {
-      color: #11801f;
-      border-bottom: 2px solid #11801f;
-    }
-    nav ul li a:hover {
-      color: #2563eb;
-      border-bottom: 2px solid #2563eb;
-    }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
+    .toc-pills a:hover {
       background: #1e3a8a;
+      color: #ffffff;
     }
-    @media (max-width: 1100px) {
-      #logo {
-        height: 40px;
-      }
-      nav ul li a {
-        font-size: 15px;
-      }
+
+    .category-block {
+      margin-bottom: 50px;
     }
-    @media (max-width: 850px) {
-      .hamburger {
-        display: flex;
-      }
-      nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 10vw;
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        width: max-content;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        max-height: 0;
-        gap: 0;
-      }
-      nav ul.show {
-        display: flex;
-        max-height: 500px;
-      }
-      nav ul li {
-        margin: 0;
-        padding: 4px 12px;
-      }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 8px;
+      margin-bottom: 22px;
+      border-bottom: 2px dashed #cbd5e1;
     }
-    @media (max-width: 350px) {
-      #logo {
-        display: none;
+    .category-header i {
+      font-size: 1.4rem;
+      background: #eff6ff;
+      color: #2563eb;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .category-header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #0f172a;
+    }
+
+    .activity-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 22px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .activity-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .activity-title {
+      color: #1e3a8a;
+      margin: 0 0 14px 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .activity-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+    
+    .media-box {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 12px;
+      box-sizing: border-box;
+    }
+    .media-box i {
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      color: #94a3b8;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .spec-table th, .spec-table td {
+      padding: 10px 14px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.92rem;
+    }
+    .spec-table th {
+      background: #f1f5f9;
+      color: #1e3a8a;
+      font-weight: 600;
+      width: 50%;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .spec-table td {
+      background: #ffffff;
+    }
+    .spec-table td:first-child {
+      border-right: 1px solid #e2e8f0;
+    }
+    .spec-table ul {
+      margin: 0;
+      padding-left: 16px;
+    }
+    .spec-table li {
+      margin-bottom: 4px;
+      color: #334155;
+    }
+
+    .badge-alert {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fffbebf5;
+      color: #b45309;
+      border: 1px solid #fde68a;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .airplane-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .airplane-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease;
+    }
+    .airplane-item:hover {
+      transform: translateY(-2px);
+    }
+    .airplane-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .airplane-item h4 {
+      margin: 0;
+      color: #0f172a;
+      font-size: 1.05rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 10px;
+    }
+    .tag-easy { background: #dcfce7; color: #15803d; }
+    .tag-med { background: #fef9c3; color: #a16207; }
+    .tag-hard { background: #fee2e2; color: #b91c1c; }
+    
+    .btn-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .btn-dl {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-dl-primary {
+      background: #1e3a8a;
+      color: #ffffff;
+    }
+    .btn-dl-primary:hover {
+      background: #2563eb;
+    }
+    .btn-dl-sub {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-dl-sub:hover {
+      background: #e2e8f0;
+    }
+
+    @media (max-width: 700px) {
+      .activity-layout {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
-<body>
-<nav>
-  <a href="home.html"><img id="logo" src="/logo.png" alt="Exploring Science Night Logo"></a>
-  <div class="hamburger" onclick="hamburgerMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
+<body class="frame-body">
+
+  <div id="container">
+    <h1>Activities</h1>
+
+    <div class="banner-note">
+      Explore all the hands-on experiments we offer! This guide outlines what comes in our kit versus what hosts need to supply.
+      <br><strong>* All activities are ready to bring unless noted otherwise.</strong>
+    </div>    
+
+    <div class="toc-pills">
+      <a href="#3d-printer"><i class="fa fa-cube"></i> 3D Printer</a>
+      <a href="#launchers"><i class="fa fa-crosshairs"></i> Launchers</a>
+      <a href="#chemistry"><i class="fa fa-flask"></i> Chemistry</a>
+      <a href="#physics"><i class="fa fa-bolt"></i> Physics</a>
+      <a href="#hands-on"><i class="fa fa-hand-paper-o"></i> Hands-On</a>
+      <a href="#paper-airplanes"><i class="fa fa-paper-plane"></i> Airplanes</a>
+    </div>
+
+    <div class="category-block" id="3d-printer">
+      <div class="category-header">
+        <i class="fa fa-cube"></i>
+        <h2>3D Printing</h2>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">3D Printer Demonstration</h3>
+        <div class="activity-layout">
+          <table class="spec-table">
+            <tr>
+              <th>In the Kit</th>
+              <th>Host / School Provides</th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>3D printer (Creality Ender 3)</li>
+                  <li>PLA Filament</li>
+                  <li>Removal tools, pliers, cutters, and bed scraper</li>
+                  <li>TF card with print files and guide</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Flat, stable table</li>
+                  <li>Optional filament donation (never required)</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>3D Printer Photo Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-block" id="launchers">
+      <div class="category-header">
+        <i class="fa fa-crosshairs"></i>
+        <h2>Launchers & Siege Engines</h2>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Catapult</h3>
+        <div class="activity-layout">
+          <table class="spec-table">
+            <tr>
+              <th>In the Kit</th>
+              <th>Host / School Provides</th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>Mounted Catapult board</li>
+                  <li>Yellow foam balls</li>
+                  <li>Rubber bands, glue, and mounting clamps</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Small table</li>
+                  <li>Open launch area in front</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Catapult Photo Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Trebuchet</h3>
+        <div class="activity-layout">
+          <table class="spec-table">
+            <tr>
+              <th>In the Kit</th>
+              <th>Host / School Provides</th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>Mounted Trebuchet board</li>
+                  <li>Blue and red plastic balls</li>
+                  <li>Weighted penny pouch</li>
+                  <li>Duct tape sling and repair items</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Small table</li>
+                  <li>Open launch space</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Trebuchet Photo Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-block" id="chemistry">
+      <div class="category-header">
+        <i class="fa fa-flask"></i>
+        <h2>Chemistry Demonstrations</h2>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Mentos Geyser</h3>
+        <div class="activity-layout">
+          <table class="spec-table">
+            <tr>
+              <th>In the Kit</th>
+              <th>Host / School Provides</th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>Tarps and base pie tray</li>
+                  <li>Custom release caps</li>
+                  <li>2L soda & seltzer bottles with Mentos</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Tape to secure tarps</li>
+                  <li>Mop and cleanup towels</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Geyser Photo Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Color-Changing Chemicals</h3>
+        <div class="activity-layout">
+          <table class="spec-table">
+            <tr>
+              <th>In the Kit</th>
+              <th>Host / School Provides</th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>Test tubes, rack, and Bromothymol Blue</li>
+                  <li>Child & adult safety goggles</li>
+                  <li>Disposable straws and tablecloth</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Flat table</li>
+                  <li>Cleanup towels</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Chemicals Photo Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Exothermic Hand Warmers</h3>
+        <div class="activity-layout">
+          <table class="spec-table">
+            <tr>
+              <th>In the Kit</th>
+              <th>Host / School Provides</th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>Ziploc bags and glass jars</li>
+                  <li>Thermometer & Calcium Chloride Flakes</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Tap water</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Hand Warmer Photo Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Acid-Base Volcano</h3>
+        <div class="activity-layout">
+          <table class="spec-table">
+            <tr>
+              <th>In the Kit</th>
+              <th>Host / School Provides</th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>Test tubes, rack, pipettes, and funnel</li>
+                  <li>Baking soda and vinegar</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Flat table</li>
+                  <li>Cleanup towels</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Volcano Photo Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-block" id="physics">
+      <div class="category-header">
+        <i class="fa fa-bolt"></i>
+        <h2>Physics & Optics</h2>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Ultrasonic Atomizer (Fogger)</h3>
+        <div class="activity-layout">
+          <table class="spec-table">
+            <tr>
+              <th>In the Kit</th>
+              <th>Host / School Provides</th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>Ultrasonic atomizer fogger and cord</li>
+                  <li>Plastic basin</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Tap water</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Fogger Photo Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Laser Waterfall</h3>
+        <div class="badge-alert"><i class="fa fa-exclamation-triangle"></i> Requires a table set up directly against a wall for safety</div>
+        <div class="activity-layout">
+          <table class="spec-table">
+            <tr>
+              <th>In the Kit</th>
+              <th>Host / School Provides</th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>Glass spigot jug and laser setup</li>
+                  <li>Waterproof baseboard & green collection tubs</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Tap water</li>
+                  <li>Wall-adjacent table area</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Laser Waterfall Photo Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Viking Ship Convection</h3>
+        <div class="activity-layout">
+          <table class="spec-table">
+            <tr>
+              <th>In the Kit</th>
+              <th>Host / School Provides</th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>Clear tub, glass cups, and match cup</li>
+                  <li>Matches and cork Viking ships</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Water</li>
+                  <li>Supervised table space</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Viking Ship Photo Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-block" id="hands-on">
+      <div class="category-header">
+        <i class="fa fa-hand-paper-o"></i>
+        <h2>Hands-On & Interactive Gadgets</h2>
+      </div>
+
+      <div class="banner-note">
+        <strong>Station Note:</strong> These gadgets are interactive! Supervision helps keep delicate components safe for everyone to enjoy.
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Standalone Gadgets</h3>
+        <ul style="line-height: 1.8;">
+          <li><strong>Boomerang Wheel:</strong> Needs open floor space to roll and curve back.</li>
+          <li><strong>Energy Stick:</strong> Demonstrates electrical conductivity through touch.</li>
+          <li><strong>Hand Boiler:</strong> Liquid rises from palm warmth (requires careful handling).</li>
+          <li><strong>Magnetic Hourglass:</strong> Generates iron filings shapes.</li>
+          <li><strong>Night Vision Goggles:</strong> Requires a dimmed room or nighttime area.</li>
+        </ul>
+      </div>
+
+      <div class="activity-card">
+        <h3 class="activity-title">Stationary & Table Experiments</h3>
+        <ul style="line-height: 1.8;">
+          <li><strong>Newton’s Cradle:</strong> Demonstrates conservation of momentum.</li>
+          <li><strong>Plasma Ball:</strong> Touch-responsive globe (needs outlet access).</li>
+          <li><strong>Frog Holograms:</strong> Optical illusion using 3D parabolic mirrors.</li>
+          <li><strong>Maglev Train:</strong> Magnetic levitation shuttle over track rails.</li>
+          <li><strong>Refraction Prisms:</strong> Splits white light into spectrum colors.</li>
+          <li><strong>Snap Circuits:</strong> Safe modular electronics builder.</li>
+          <li><strong>Microscope:</strong> 100-slide tray (volunteers assist with slide handling).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="category-block" id="paper-airplanes">
+      <div class="category-header">
+        <i class="fa fa-paper-plane"></i>
+        <h2>Paper Airplanes</h2>
+      </div>
+
+      <div class="activity-card">
+        <p>
+          Students construct templates, test aerodynamics, and discover which aircraft perform best for distance, speed, or acrobatics!
+        </p>
+
+        <h3>Printable Templates & Instructions</h3>
+        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 24px;">
+          Download individual design files below by difficulty level. Full bundle packages will be available on our upcoming downloads page!
+        </p>
+
+        <div style="margin-bottom: 30px;">
+          <h4 style="color: #15803d; border-bottom: 2px solid #dcfce7; padding-bottom: 6px; margin-bottom: 14px; font-size: 1.1rem;">Easy Designs</h4>
+          <div class="airplane-grid">
+            <div class="airplane-item">
+              <div class="airplane-header">
+                <h4>Arrow</h4>
+                <span class="tag tag-easy">Easy</span>
+              </div>
+              <div class="btn-stack">
+                <a href="../assets/airplane_templates/easy/arrow/template.pdf" download class="btn-dl btn-dl-primary">
+                  <i class="fa fa-download"></i> Template
+                </a>
+                <a href="../assets/airplane_templates/easy/arrow/instructions.pdf" download class="btn-dl btn-dl-sub">
+                  <i class="fa fa-file-text-o"></i> Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="airplane-item">
+              <div class="airplane-header">
+                <h4>Classic Dart</h4>
+                <span class="tag tag-easy">Easy</span>
+              </div>
+              <div class="btn-stack">
+                <a href="../assets/airplane_templates/easy/classic_dart/template.pdf" download class="btn-dl btn-dl-primary">
+                  <i class="fa fa-download"></i> Template
+                </a>
+                <a href="../assets/airplane_templates/easy/classic_dart/instructions.pdf" download class="btn-dl btn-dl-sub">
+                  <i class="fa fa-file-text-o"></i> Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="airplane-item">
+              <div class="airplane-header">
+                <h4>Condor</h4>
+                <span class="tag tag-easy">Easy</span>
+              </div>
+              <div class="btn-stack">
+                <a href="../assets/airplane_templates/easy/condor/template.pdf" download class="btn-dl btn-dl-primary">
+                  <i class="fa fa-download"></i> Template
+                </a>
+                <a href="../assets/airplane_templates/easy/condor/instructions.pdf" download class="btn-dl btn-dl-sub">
+                  <i class="fa fa-file-text-o"></i> Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="airplane-item">
+              <div class="airplane-header">
+                <h4>Delta</h4>
+                <span class="tag tag-easy">Easy</span>
+              </div>
+              <div class="btn-stack">
+                <a href="../assets/airplane_templates/easy/delta/template.pdf" download class="btn-dl btn-dl-primary">
+                  <i class="fa fa-download"></i> Template
+                </a>
+                <a href="../assets/airplane_templates/easy/delta/instructions.pdf" download class="btn-dl btn-dl-sub">
+                  <i class="fa fa-file-text-o"></i> Guide
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h4 style="color: #a16207; border-bottom: 2px solid #fef9c3; padding-bottom: 6px; margin-bottom: 14px; font-size: 1.1rem;">Medium Designs</h4>
+          <div class="airplane-grid">
+            <div class="airplane-item">
+              <div class="airplane-header">
+                <h4>Canard</h4>
+                <span class="tag tag-med">Medium</span>
+              </div>
+              <div class="btn-stack">
+                <a href="../assets/airplane_templates/medium/canard/template.pdf" download class="btn-dl btn-dl-primary">
+                  <i class="fa fa-download"></i> Template
+                </a>
+                <a href="../assets/airplane_templates/medium/canard/instructions.pdf" download class="btn-dl btn-dl-sub">
+                  <i class="fa fa-file-text-o"></i> Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="airplane-item">
+              <div class="airplane-header">
+                <h4>Raptor</h4>
+                <span class="tag tag-med">Medium</span>
+              </div>
+              <div class="btn-stack">
+                <a href="../assets/airplane_templates/medium/raptor/template.pdf" download class="btn-dl btn-dl-primary">
+                  <i class="fa fa-download"></i> Template
+                </a>
+                <a href="../assets/airplane_templates/medium/raptor/instructions.pdf" download class="btn-dl btn-dl-sub">
+                  <i class="fa fa-file-text-o"></i> Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="airplane-item">
+              <div class="airplane-header">
+                <h4>Spade</h4>
+                <span class="tag tag-med">Medium</span>
+              </div>
+              <div class="btn-stack">
+                <a href="../assets/airplane_templates/medium/spade/template.pdf" download class="btn-dl btn-dl-primary">
+                  <i class="fa fa-download"></i> Template
+                </a>
+                <a href="../assets/airplane_templates/medium/spade/instructions.pdf" download class="btn-dl btn-dl-sub">
+                  <i class="fa fa-file-text-o"></i> Guide
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="color: #b91c1c; border-bottom: 2px solid #fee2e2; padding-bottom: 6px; margin-bottom: 14px; font-size: 1.1rem;">Hard Designs</h4>
+          <div class="airplane-grid">
+            <div class="airplane-item">
+              <div class="airplane-header">
+                <h4>Bulldog</h4>
+                <span class="tag tag-hard">Hard</span>
+              </div>
+              <div class="btn-stack">
+                <a href="../assets/airplane_templates/hard/bulldog/template.pdf" download class="btn-dl btn-dl-primary">
+                  <i class="fa fa-download"></i> Template
+                </a>
+                <a href="../assets/airplane_templates/hard/bulldog/instructions.pdf" download class="btn-dl btn-dl-sub">
+                  <i class="fa fa-file-text-o"></i> Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="airplane-item">
+              <div class="airplane-header">
+                <h4>Bullet</h4>
+                <span class="tag tag-hard">Hard</span>
+              </div>
+              <div class="btn-stack">
+                <a href="../assets/airplane_templates/hard/bullet/template.pdf" download class="btn-dl btn-dl-primary">
+                  <i class="fa fa-download"></i> Template
+                </a>
+                <a href="../assets/airplane_templates/hard/bullet/instructions.pdf" download class="btn-dl btn-dl-sub">
+                  <i class="fa fa-file-text-o"></i> Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="airplane-item">
+              <div class="airplane-header">
+                <h4>Interceptor</h4>
+                <span class="tag tag-hard">Hard</span>
+              </div>
+              <div class="btn-stack">
+                <a href="../assets/airplane_templates/hard/interceptor/template.pdf" download class="btn-dl btn-dl-primary">
+                  <i class="fa fa-download"></i> Template
+                </a>
+                <a href="../assets/airplane_templates/hard/interceptor/instructions.pdf" download class="btn-dl btn-dl-sub">
+                  <i class="fa fa-file-text-o"></i> Guide
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
-  <ul id="nav-links">
-    <li><a href="home.html"><i class="fa fa-fw fa-home"></i> Home</a></li>
-    <li><a href="activities.html" class="active"><i class="fa fa-check-square-o"></i> Activities</a></li>
-    <li><a href="about.html"><i class="fa fa-info-circle"></i> About Us</a></li>
-    <li><a href="contact.html"><i class="fa fa-fw fa-envelope"></i> Contact</a></li>
-  </ul>
-</nav>
-<script>
-  function hamburgerMenu() {
-    const navLinks = document.getElementById("nav-links");
-    navLinks.classList.toggle("show");
-  }
-</script>
+
 </body>
 </html>
