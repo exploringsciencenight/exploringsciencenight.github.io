@@ -106,6 +106,13 @@
       margin-bottom: 6px;
       color: #94a3b8;
     }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 25px;
+    }
 
     .spec-table {
       width: 100%;
@@ -253,7 +260,9 @@
       <a href="#launchers"><i class="fa fa-crosshairs"></i> Launchers</a>
       <a href="#chemistry"><i class="fa fa-flask"></i> Chemistry</a>
       <a href="#physics"><i class="fa fa-bolt"></i> Physics</a>
-      <a href="#hands-on"><i class="fa fa-hand-paper-o"></i> Hands-On</a>
+      <a href="#energy"><i class="fa fa-lightbulb-o"></i> Energy</a>
+      <a href="#magnetics"><i class="fa fa-magnet" style="transform: rotate(90deg);"></i> Magnetics</a>
+      <a href="#optics"><i class="fa fa-eye"></i> Optics</a>
       <a href="#paper-airplanes"><i class="fa fa-paper-plane"></i> Aerodynamics</a>
     </div>
 
@@ -488,7 +497,7 @@
     <div class="category-block" id="physics">
       <div class="category-header">
         <i class="fa fa-bolt"></i>
-        <h2>Physics & Optics</h2>
+        <h2>Physics</h2>
       </div>
 
       <div class="activity-card">
@@ -509,6 +518,7 @@
               <td>
                 <ul>
                   <li>Tap water</li>
+                  <li>Table space and electricity outlet</li>
                 </ul>
               </td>
             </tr>
@@ -536,7 +546,7 @@
               <td>
                 <ul>
                   <li>Tap water</li>
-                  <li>Wall-adjacent table area</li>
+                  <li>Wall-adjacent table area and electricity outlet</li>
                 </ul>
               </td>
             </tr>
@@ -573,38 +583,108 @@
       </div>
     </div>
 
-    <div class="category-block" id="hands-on">
+    <div class="category-block" id="energy">
       <div class="category-header">
-        <i class="fa fa-hand-paper-o"></i>
-        <h2>Hands-On & Interactive Gadgets</h2>
+        <i class="fa fa-lightbulb-o"></i>
+        <h2>Energy</h2>
       </div>
 
-      <div class="banner-note"><strong>Station Note:</strong> These gadgets are interactive! Supervision helps keep delicate components safe for everyone to enjoy.</div>
-
       <div class="activity-card">
-        <h3 class="activity-title">Standalone Gadgets</h3>
         <ul style="line-height: 1.8;">
-          <li><strong>Boomerang Wheel:</strong> Needs open floor space to roll and curve back.</li>
-          <li><strong>Energy Stick:</strong> Demonstrates electrical conductivity through touch.</li>
-          <li><strong>Hand Boiler:</strong> Liquid rises from palm warmth (requires careful handling).</li>
-          <li><strong>Magnetic Hourglass:</strong> Generates iron filings shapes.</li>
-          <li><strong>Night Vision Goggles:</strong> Requires a dimmed room or nighttime area.</li>
+          <li><strong>Boomerang Wheel (Hands-On):</strong> Conserves energy by converting potential energy into motion. <em>Requires open floor space to roll and curve back.</em></li>
+          <li><strong>Energy Stick (Hands-On):</strong> Demonstrates electrical conductivity through touch.</li>
+          <li><strong>Hand Boiler (Hands-On):</strong> Liquid rises from palm warmth. <em>Requires careful handling.</em></li>
+          <li><strong>Newton’s Cradle:</strong> Demonstrates conservation of momentum. <em>Requires table space.</em></li>
+          <li><strong>Plasma Ball:</strong> Touch-responsive globe. <em>Requires table space and outlet access.</em></li>
+          <li><strong>Snap Circuits (Hands-On):</strong> Safe modular electronics builder. <em>Requires table space.</em></li>
         </ul>
+        
+        <div class="gallery-grid">
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Boomerang Wheel Comming Soon</span>
+          </div>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Energy Stick Comming Soon</span>
+          </div>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Hand Boiler Comming Soon</span>
+          </div>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Newton’s Cradle Comming Soon</span>
+          </div>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Plasma Ball Comming Soon</span>
+          </div>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Snap Circuits Comming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-block" id="magnetics">
+      <div class="category-header">
+        <i class="fa fa-magnet" style="transform: rotate(90deg);"></i>
+        <h2>Magnetics</h2>
       </div>
 
-      <div class="banner-note">Experiments that kids can us, just not lift or move.</div>
+      <div class="activity-card">
+        <ul style="line-height: 1.8;">
+          <li><strong>Magnetic Hourglass (Hands-On):</strong> Generates iron filings shapes. <em>Requires table space.</em></li>
+          <li><strong>Maglev Train:</strong> Magnetic levitation shuttle over track rails. <em>Requires table space.</em></li>
+        </ul>
+        
+        <div class="gallery-grid">
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Magnetic Hourglass Comming Soon</span>
+          </div>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Maglev Train Comming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-block" id="optics">
+      <div class="category-header">
+        <i class="fa fa-eye"></i>
+        <h2>Optics</h2>
+      </div>
 
       <div class="activity-card">
-        <h3 class="activity-title">Stationary & Table Experiments</h3>
         <ul style="line-height: 1.8;">
-          <li><strong>Newton’s Cradle:</strong> Demonstrates conservation of momentum.</li>
-          <li><strong>Plasma Ball:</strong> Touch-responsive globe (needs outlet access).</li>
-          <li><strong>Frog Holograms:</strong> Optical illusion using 3D parabolic mirrors.</li>
-          <li><strong>Maglev Train:</strong> Magnetic levitation shuttle over track rails.</li>
-          <li><strong>Refraction Prisms:</strong> Splits white light into spectrum colors.</li>
-          <li><strong>Snap Circuits:</strong> Safe modular electronics builder.</li>
-          <li><strong>Microscope:</strong> 100-slide tray (volunteers assist with slide handling).</li>
+          <li><strong>Night Vision Goggles (Hands-On):</strong> <em>Requires a dimmed room or nighttime area.</em></li>
+          <li><strong>Frog Holograms:</strong> Optical illusion using 3D parabolic mirrors. <em>Requires table space.</em></li>
+          <li><strong>Refraction Prisms (Hands-On):</strong> Splits white light into spectrum colors. <em>Requires table space.</em></li>
+          <li><strong>Microscope:</strong> 100-slide tray (volunteers assist with slide handling). <em>Requires table space and outlet access.</em></li>
         </ul>
+        
+        <div class="gallery-grid">
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Night Vision Goggles Comming Soon</span>
+          </div>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Frog Holograms Comming Soon</span>
+          </div>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Refraction Prisms Comming Soon</span>
+          </div>
+          <div class="media-box">
+            <i class="fa fa-camera"></i>
+            <span>Microscope Comming Soon</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -618,6 +698,10 @@
         <p>
           Kids construct paper airplanes from templates, test aerodynamics, and discover which aircrafts perform best for distance, speed, and/or acrobatics!
         </p>
+
+        <div style="text-align: center; margin: 25px 0;">
+          <img src="../assets/activities_imgs/paper-airplanes.png" alt="Paper Airplanes Selection" style="max-width: 100%; border-radius: 8px; border: 1px solid #e2e8f0; display: block; margin: 0 auto;">
+        </div>
 
         <h3>Printable Templates & Instructions</h3>
         <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 24px;">Download individual design files below by difficulty level. The full bundle packages is available on our downloads page.</p>
